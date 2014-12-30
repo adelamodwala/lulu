@@ -1,0 +1,121 @@
+//Home Styles
+
+.home-page, .about-page {
+
+	.grid-section {margin: 0;}
+
+	.tile {
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		margin: 0;
+		overflow: hidden;
+		position: relative;
+		
+
+		.project-tile-content {
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			color: white;
+			font-size: 22px;
+			font-family: Oswald;
+			background: #e7db16;
+			text-align: center;
+			top: 100%;
+			@include transition(top .3s ease-in-out);
+
+			.project-title {
+				position: relative;
+				top: 50%;
+				@include transform(translateY(-50%));
+			}
+		}
+
+		&:hover .project-tile-content {top: 0;}
+
+	}
+
+	.about-tile {
+		color: white;
+		background: #3eb595;
+		position: relative;
+		@include box-shadow(0 1px 0 0 #3eb595);
+
+		&:before {
+			content: "";
+			display: block;
+			padding-top: 99.99%;
+		}
+
+		.content {
+			position: absolute;
+			top: 50%;
+			@include transform(translateY(-50%));
+			width: 80%;
+			left: 10%;
+		}
+		// padding: 15% 50px 85% 50px;
+		// height: 0;
+
+		h1 {
+			font-size: 46px;
+			font-family: Oswald;
+			margin-bottom: 25px;
+		}
+		h3 {
+			font-size: 40px; 
+			letter-spacing: 1px;
+			line-height: 47px;
+		}
+	}
+
+	.project-tile {
+		// height: 200px;
+		padding-top: 25%;
+	}
+
+	.big-tiles {
+		.tile:not(.about-tile) {
+			width: 50%;
+			&:nth-child(-n+7) {
+				padding-top: 50%;
+				
+			}
+		}
+
+		.about-tile {
+			@include box-shadow(none);
+			&:before {padding-top: 100%;}
+		}
+	}
+
+}
+
+@media #{media-width-res(1100)} {
+	.home-page .about-tile {
+		h1 {font-size: 35px;}
+		h3 {font-size: 27px; line-height: 33px;}		
+	}
+}
+
+@media #{media-width-res(900)} {
+	.home-page .about-tile {
+		h1 {font-size: 30px;}
+		h3 {font-size: 23px; line-height: 29px;}
+	}
+}
+
+@media #{media-width-res(600)} {
+	.home-page .about-tile {
+		h1 {font-size: 24px;}
+		h3 {font-size: 18px; line-height: 22px;}
+	}
+}
+
+@media #{media-width-res(450)} {
+	.home-page .about-tile {
+		h1 {font-size: 20px; margin-bottom: 5px;}
+		h3 {font-size: 14px; line-height: 1;}
+	}
+}

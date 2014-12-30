@@ -1,0 +1,72 @@
+//Project Styles
+
+.post.projects {
+
+	.project-info {
+		width: 256px;
+		height: calc(100vh - 70px);
+		overflow: hidden;
+		overflow-y: scroll;
+		background: #10b885;
+		color: white;
+		text-transform: uppercase;
+
+		.section-wrapper {padding: 60px 35px; width: 100%;}
+
+		.intro {margin-bottom: 80px;}
+
+		.details {
+			font-family: OswaldLight;
+			font-size: 18px;
+			line-height: 26px;
+		}
+	}
+
+	.project-slider {
+		overflow: hidden;
+
+		.liquid-slider {width: 100%;}
+
+		.slide {
+			// min-height: calc(100vh - 70px);
+			height: calc(100vh - 70px);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+		}
+	}
+
+	.hijack-screen {
+		// .project-info, .project-slider .slide {min-height: 100vh;}
+	}
+}
+
+@media #{media-width-res(1100)} {
+	.post.projects {
+		.project-info {
+			width: 100%;
+			height: auto;
+			overflow: visible;
+		}
+
+		.project-slider {
+			width: 100%;
+			overflow: visible;
+		}
+	}
+}
+
+@media #{media-width-res(800)} {
+	.post.projects {
+		.project-info {
+			.section-wrapper {padding: 35px;}
+			.intro {
+				margin-bottom: 35px;
+			}
+			.details {
+				font-size: 15px;
+				line-height: 23px;
+			}
+		}
+	}
+}

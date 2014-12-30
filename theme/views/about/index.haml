@@ -1,0 +1,16 @@
+- $post = get_post(get_the_ID())
+.post.about-page
+
+	.grid-section.grid-group.tile-section
+		- $gallery = get_field('gallery')
+		- foreach($gallery as $image)
+			.grid-col.col-1-4.tile.project-tile(style="background-image: url('#{$image['url']}')")
+
+	.page-section.info-section
+		.col.col-3-4.about-info
+			.section-wrapper
+				= wpautop($post->post_content)
+		.col.col-1-4.insta-feed
+			.section-wrapper
+				.col-title instagram
+				#insta-feed

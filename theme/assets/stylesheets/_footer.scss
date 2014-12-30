@@ -1,0 +1,24 @@
+//Footer Styles
+
+.footer-container {
+	background: rgb(233,233,233);
+	text-transform: uppercase;
+	font-family: Oswald;
+	font-size: 10px;
+	color: rgba(black, 0.8);
+
+	.section-wrapper {padding: 20px 35px;}
+
+	.copyright {margin-top: 11px;}
+
+	.social-icons {
+		.social-icon {
+			margin-left: 6px;
+			vertical-align: top;
+			position: relative;
+			opacity: 0.8;
+
+			&:hover {opacity: 1;}
+		}
+	}
+}
