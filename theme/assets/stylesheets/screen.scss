@@ -9,11 +9,13 @@
 .page-wrapper {
   margin-left: 256px;
   font-family: OswaldLight, "Helvetica", "Arial", sans-serif;
+
+  .site-content, .site-footer {opacity: 0;}
 }
 
 @import "home";
 @import "project";
 @import "about";
 @import "footer";
-
+@import "browsers";
 @import "mobile";

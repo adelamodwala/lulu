@@ -258,7 +258,40 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 100%;
 }
 
-@-webkit-keyframes $animation-name {
+/* line 139, ../../theme/assets/stylesheets/_core.scss */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(255, 255, 255, 0.6);
+  z-index: 200;
+}
+/* line 148, ../../theme/assets/stylesheets/_core.scss */
+.loader .spinner {
+  height: 53px;
+  width: 53px;
+  margin: 0 auto;
+  position: relative;
+  top: 50%;
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background: url("../images/loader.png") center no-repeat;
+  -webkit-animation: play 0.5s steps(8) infinite;
+  /* Safari 4+ */
+  -moz-animation: play 0.5s steps(8) infinite;
+  /* Fx 5+ */
+  -o-animation: play 0.5s steps(8) infinite;
+  /* Opera 12+ */
+  animation: play 0.5s steps(8) infinite;
+  /* IE 10+, Fx 29+ */
+  position: relative;
+}
+
+@-webkit-keyframes play {
   from {
     background-position: 0;
   }
@@ -266,7 +299,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     background-position: -424px;
   }
 }
-@-moz-keyframes $animation-name {
+@-moz-keyframes play {
   from {
     background-position: 0;
   }
@@ -274,7 +307,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
     background-position: -424px;
   }
 }
-@keyframes $animation-name {
+@keyframes play {
   from {
     background-position: 0;
   }
@@ -415,7 +448,7 @@ header.site-header .logo {
 }
 /* line 16, ../../theme/assets/stylesheets/_site_header.scss */
 header.site-header a {
-  font-family: Oswald;
+  font-family: OswaldLight;
   font-size: 14px;
   color: black;
   text-decoration: none;
@@ -488,12 +521,12 @@ header.site-header .toggle-menu {
     height: 75px;
     padding: 0;
     background-size: contain;
-    margin: 0 0 7px;
+    margin: 15px 0;
   }
   /* line 81, ../../theme/assets/stylesheets/_site_header.scss */
   header.site-header .toggle-menu {
     position: absolute;
-    top: 30px;
+    top: 40px;
     right: 35px;
     display: block;
     cursor: pointer;
@@ -502,13 +535,17 @@ header.site-header .toggle-menu {
 
   /* line 91, ../../theme/assets/stylesheets/_site_header.scss */
   .page-wrapper {
-    margin: 82px 0 0 !important;
+    margin: 105px 0 0 !important;
   }
 }
 /* line 9, ../../theme/assets/stylesheets/screen.scss */
 .page-wrapper {
   margin-left: 256px;
   font-family: OswaldLight, "Helvetica", "Arial", sans-serif;
+}
+/* line 13, ../../theme/assets/stylesheets/screen.scss */
+.page-wrapper .site-content, .page-wrapper .site-footer {
+  opacity: 0;
 }
 
 /* line 5, ../../theme/assets/stylesheets/_home.scss */
@@ -596,22 +633,20 @@ header.site-header .toggle-menu {
   padding-top: 25%;
 }
 /* line 79, ../../theme/assets/stylesheets/_home.scss */
-.home-page .big-tiles .tile:not(.about-tile), .about-page .big-tiles .tile:not(.about-tile) {
-  width: 50%;
-}
-/* line 81, ../../theme/assets/stylesheets/_home.scss */
-.home-page .big-tiles .tile:not(.about-tile):nth-child(-n+7), .about-page .big-tiles .tile:not(.about-tile):nth-child(-n+7) {
-  padding-top: 50%;
-}
-/* line 87, ../../theme/assets/stylesheets/_home.scss */
-.home-page .big-tiles .about-tile, .about-page .big-tiles .about-tile {
+.home-page .full-about .about-tile, .about-page .full-about .about-tile {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none;
+  width: 100%;
 }
-/* line 89, ../../theme/assets/stylesheets/_home.scss */
-.home-page .big-tiles .about-tile:before, .about-page .big-tiles .about-tile:before {
-  padding-top: 100%;
+/* line 82, ../../theme/assets/stylesheets/_home.scss */
+.home-page .full-about .about-tile:before, .about-page .full-about .about-tile:before {
+  padding-top: 50%;
+}
+/* line 86, ../../theme/assets/stylesheets/_home.scss */
+.home-page .full-about.big-tiles .project-tile, .about-page .full-about.big-tiles .project-tile {
+  width: 50%;
+  padding-top: 50%;
 }
 
 @media only screen and (max-device-width: 1100px), (max-width: 1100px) {
@@ -664,7 +699,7 @@ header.site-header .toggle-menu {
   width: 256px;
   height: calc(100vh - 70px);
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   background: #10b885;
   color: white;
   text-transform: uppercase;
@@ -792,42 +827,46 @@ header.site-header .toggle-menu {
 .about-page .info-section .insta-feed a:last-child {
   margin-bottom: 0;
 }
+/* line 47, ../../theme/assets/stylesheets/_about.scss */
+.about-page .info-section .insta-feed a img {
+  width: 100%;
+}
 
 @media only screen and (max-device-width: 1000px), (max-width: 1000px) {
-  /* line 59, ../../theme/assets/stylesheets/_about.scss */
+  /* line 60, ../../theme/assets/stylesheets/_about.scss */
   .about-page .info-section .about-info, .about-page .info-section .insta-feed {
     min-height: 0;
     width: 100%;
     display: block;
   }
-  /* line 65, ../../theme/assets/stylesheets/_about.scss */
+  /* line 66, ../../theme/assets/stylesheets/_about.scss */
   .about-page .info-section .insta-feed {
     padding-top: 0;
   }
-  /* line 68, ../../theme/assets/stylesheets/_about.scss */
+  /* line 69, ../../theme/assets/stylesheets/_about.scss */
   .about-page .info-section .insta-feed a {
     width: calc(50% - 10px);
     margin-right: 20px;
     margin-bottom: 0;
     display: inline-block;
   }
-  /* line 73, ../../theme/assets/stylesheets/_about.scss */
+  /* line 74, ../../theme/assets/stylesheets/_about.scss */
   .about-page .info-section .insta-feed a:last-child {
     margin-right: 0;
   }
 }
 @media only screen and (max-device-width: 500px), (max-width: 500px) {
-  /* line 81, ../../theme/assets/stylesheets/_about.scss */
+  /* line 82, ../../theme/assets/stylesheets/_about.scss */
   .about-page .info-section .insta-feed a {
     display: block;
     width: 100%;
     margin: 0 0 20px 0;
   }
-  /* line 85, ../../theme/assets/stylesheets/_about.scss */
+  /* line 86, ../../theme/assets/stylesheets/_about.scss */
   .about-page .info-section .insta-feed a:last-child {
     margin-bottom: 0;
   }
-  /* line 87, ../../theme/assets/stylesheets/_about.scss */
+  /* line 88, ../../theme/assets/stylesheets/_about.scss */
   .about-page .info-section .insta-feed a img {
     width: 100%;
   }

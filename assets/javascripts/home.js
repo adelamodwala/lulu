@@ -1,6 +1,7 @@
 //Home.js
 
 var $ = jQuery;
+var atAboutPage = $('.post').hasClass('about-page');
 
 function squareItem(item) {
 	item.each(function() {
@@ -13,8 +14,15 @@ function squareItem(item) {
 }
 
 function checkContentHeight() {
+	var grid = $('.home-page .grid-group');
+	grid.removeClass('full-about').removeClass('big-tiles');
 	var cHeight = $(".site-footer").height() + $(".site-content").height();
-	if(cHeight < innerHeight) $('.home-page .grid-group').addClass('big-tiles');
+	
+	if(cHeight < innerHeight) grid.addClass('full-about');
+	cHeight = $(".site-footer").height() + $(".site-content").height();
+	if(cHeight < innerHeight && grid.hasClass('full-about')) grid.addClass('big-tiles')
+	
+	
 }
 
 function checkProjectHeights() {
@@ -23,13 +31,14 @@ function checkProjectHeights() {
 	if(infoHeight > innerHeight - footerHeight) $('.project-container').addClass('hijack-screen')
 }
 
-function resizeFunctions() {
+function resizeHomeFunctions() {
 	checkContentHeight();
 	// checkProjectHeights();
 }
 
 function loadInstagram() {
-	if($('.post').hasClass('about-page')) {
+	if(atAboutPage) {
+
 	  var feed = new Instafeed({
 	    get: 'user',
 	    userId: 1442533530,
@@ -37,16 +46,42 @@ function loadInstagram() {
 	    target: 'insta-feed',
 	    limit: 2,
 	    sortBy: 'most-recent',
-	    resolution: 'low_resolution'
+	    resolution: 'low_resolution',
+	    before: showLoader,
+	    after: function() {
+	    	hideLoader(true);
+	    }
 	  });
 	  feed.run();
 	}
 }
 
+function hideLoader(showContent) {
+	$(".loader").addClass('hidden');
+	if(showContent) {
+		TweenLite.to($(".site-content, .site-footer"), 0.6, {opacity: 1});
+	}
+}
+
+function showLoader() {
+	$(".loader").removeClass('hidden');
+
+}
+
 $(document).ready(function() {
 
-	resizeFunctions();
-	$(window).resize(resizeFunctions);
+	if($('.post').hasClass('home-page')) {
+		resizeHomeFunctions();
+		$(window).resize(resizeHomeFunctions);
+	}
+
+
+	$('html').waitForImages({
+		finished: function() {
+			hideLoader(!atAboutPage);
+		},
+		waitForAll: true
+	});
 
 	loadInstagram();
 

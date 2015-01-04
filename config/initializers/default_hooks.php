@@ -23,6 +23,12 @@ function enqueue_javascripts() {
   wp_register_script("css_browser_selector", javascript_url("css_browser_selector"), '', false, true);
   wp_enqueue_script("css_browser_selector");
 
+  wp_register_script("jquery.waitforimages", javascript_url("jquery.waitforimages"), '', false, true);
+  wp_enqueue_script("jquery.waitforimages");
+
+  wp_register_script("TweenMax", javascript_url("TweenMax"), '', false, true);
+  wp_enqueue_script("TweenMax");
+
   wp_register_script("jquery.touchSwipe.min", javascript_url("jquery.touchSwipe.min"), '', false, true);
   wp_enqueue_script("jquery.touchSwipe.min");
 

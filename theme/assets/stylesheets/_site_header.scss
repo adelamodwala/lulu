@@ -14,7 +14,7 @@ header.site-header {
   }
 
   a {
-    font-family: Oswald;
+    font-family: OswaldLight;
     font-size: 14px;
     color: black;
     text-decoration: none;
@@ -74,13 +74,13 @@ header.site-header {
       height: 75px;
       padding: 0;
       background-size: contain;
-      margin: 0 0 7px;
+      margin: 15px 0;
       // float: left;
     }
 
     .toggle-menu {
       position: absolute;
-      top: 30px;
+      top: 40px;
       right: 35px;
       display: block;
       cursor: pointer;
@@ -89,6 +89,6 @@ header.site-header {
   }
 
   .page-wrapper {
-    margin: 82px 0 0 !important;
+    margin: 105px 0 0 !important;
   }
 }

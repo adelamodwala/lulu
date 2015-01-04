@@ -136,30 +136,43 @@
 	width: 100%;
 }
 
+.loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background: rgba(white, 0.6);
+	z-index: 200;
 
-//mixins
-@mixin keyframes($animation-name) {
-  @-webkit-keyframes $animation-name {
-    @content;
-  }
-  @-moz-keyframes $animation-name {
-    @content;
-  }
-  @keyframes $animation-name {
-    @content;
-  }
+	.spinner {
+		height: 53px;
+		width: 53px;
+		margin: 0 auto;
+		position: relative;
+		top: 50%;
+		@include transform(translateY(-50%));
+		background: url('../images/loader.png') center no-repeat;
+		-webkit-animation: play .5s steps(8) infinite; /* Safari 4+ */
+		-moz-animation:    play .5s steps(8) infinite; /* Fx 5+ */
+		-o-animation:      play .5s steps(8) infinite; /* Opera 12+ */
+		animation:         play .5s steps(8) infinite; /* IE 10+, Fx 29+ */
+		position: relative;
+		// display: none;
+	}
 }
-@mixin clip-path($clip) {
-  -webkit-clip-path: $clip;
-  -moz-clip-path: $clip;
-  -ms-clip-path: $clip;
-  clip-path: $clip;
+
+
+//animations
+@-webkit-keyframes play {
+  from {background-position: 0;}
+  to {background-position: -424px;}
 }
-
-
-//
-//Keyframes
-@include keyframes(play) {
-	from { background-position: 0; }
-	to { background-position: -424px; }
+@-moz-keyframes play {
+  from {background-position: 0;}
+  to {background-position: -424px;}
+}
+@keyframes play {
+  from {background-position: 0;}
+  to {background-position: -424px;}
 }
