@@ -19,6 +19,8 @@ header.site-header {
     color: black;
     text-decoration: none;
     text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-rendering: geometricPrecision;
   }
 
   .menu {

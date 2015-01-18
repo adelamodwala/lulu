@@ -106,6 +106,10 @@
 	}
 }
 
+@media #{media-width-res(800)} {
+
+}
+
 @media #{media-width-res(600)} {
 	.home-page .about-tile {
 		h1 {font-size: 24px;}
@@ -116,6 +120,7 @@
 @media #{media-width-res(450)} {
 	.home-page .about-tile {
 		h1 {font-size: 20px; margin-bottom: 5px;}
-		h3 {font-size: 14px; line-height: 1;}
+		h3 {font-size: 14px;}
 	}
+	.about-tile:before {padding-top: 100% !important;}
 }

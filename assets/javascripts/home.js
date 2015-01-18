@@ -20,7 +20,7 @@ function checkContentHeight() {
 	
 	if(cHeight < innerHeight) grid.addClass('full-about');
 	cHeight = $(".site-footer").height() + $(".site-content").height();
-	if(cHeight < innerHeight && grid.hasClass('full-about')) grid.addClass('big-tiles')
+	if((cHeight < innerHeight && grid.hasClass('full-about')) || (innerWidth < 600)) grid.addClass('big-tiles')
 	
 	
 }
@@ -41,8 +41,8 @@ function loadInstagram() {
 
 	  var feed = new Instafeed({
 	    get: 'user',
-	    userId: 1442533530,
-	    accessToken: '1442533530.467ede5.4809712fc8f44433b51c79a2e6e30971',
+	    userId: 10630013,
+	    accessToken: '10630013.467ede5.41c2c14e0ea8443eb10e9190f8530dad',
 	    target: 'insta-feed',
 	    limit: 2,
 	    sortBy: 'most-recent',
